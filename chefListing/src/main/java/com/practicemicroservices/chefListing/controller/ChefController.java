@@ -29,7 +29,7 @@ public class ChefController {
     }
 
     @GetMapping("fetchById/{id}")
-    public ResponseEntity<ChefDTO> findChefById(@PathVariable Integer id){
+    public ResponseEntity<ChefDTO> findChefById(@PathVariable String id){
         return chefService.fetchChefById(id);
     }
 }

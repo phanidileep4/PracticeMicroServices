@@ -4,4 +4,60 @@ server:
 eureka:
   client:
     fetch-registry: false
-    registry-with-eureka: false
+    register-with-eureka: false
+  server:
+    enable-self-preservation: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: cloud
+
+server:
+  port: ${PORT:8080}
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+  server:
+    enable-self-preservation: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    root: INFO
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+
+server:
+  port: 8761
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+  server:
+    enable-self-preservation: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

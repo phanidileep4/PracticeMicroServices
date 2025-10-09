@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Chef {
-    private int id;
+    private String id;
     private String name;
     private String address;
     private String city;

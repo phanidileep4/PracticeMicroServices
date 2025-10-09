@@ -1,0 +1,747 @@
+{
+	"info": {
+		"_postman_id": "homefood-microservices-cloud",
+		"name": "HomeFoodEats Microservices - Cloud",
+		"description": "Complete API collection for HomeFoodEats microservices deployed on Google Cloud Run",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Eureka Server",
+			"item": [
+				{
+					"name": "Eureka Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{eureka_url}}",
+							"host": ["{{eureka_url}}"]
+						},
+						"description": "Access Eureka Service Discovery Dashboard"
+					}
+				},
+				{
+					"name": "Eureka Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{eureka_url}}/actuator/health",
+							"host": ["{{eureka_url}}"],
+							"path": ["actuator", "health"]
+						},
+						"description": "Check Eureka server health status"
+					}
+				},
+				{
+					"name": "Eureka Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{eureka_url}}/actuator/info",
+							"host": ["{{eureka_url}}"],
+							"path": ["actuator", "info"]
+						},
+						"description": "Get Eureka server information"
+					}
+				},
+				{
+					"name": "Registered Services",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{eureka_url}}/eureka/apps",
+							"host": ["{{eureka_url}}"],
+							"path": ["eureka", "apps"]
+						},
+						"description": "Get all registered services in Eureka"
+					}
+				}
+			],
+			"description": "Eureka Service Discovery endpoints"
+		},
+		{
+			"name": "User Service",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{user_service_url}}/actuator/health",
+							"host": ["{{user_service_url}}"],
+							"path": ["actuator", "health"]
+						},
+						"description": "Check User service health"
+					}
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{user_service_url}}/users",
+							"host": ["{{user_service_url}}"],
+							"path": ["users"]
+						},
+						"description": "Retrieve all users"
+					}
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{user_service_url}}/users/{{user_id}}",
+							"host": ["{{user_service_url}}"],
+							"path": ["users", "{{user_id}}"]
+						},
+						"description": "Get specific user by ID"
+					}
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"phone\": \"+1234567890\",\n  \"address\": \"123 Main St, City, State\"\n}"
+						},
+						"url": {
+							"raw": "{{user_service_url}}/users",
+							"host": ["{{user_service_url}}"],
+							"path": ["users"]
+						},
+						"description": "Create a new user"
+					}
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"{{user_id}}\",\n  \"name\": \"John Updated\",\n  \"email\": \"john.updated@example.com\",\n  \"phone\": \"+1234567890\",\n  \"address\": \"456 Updated St, City, State\"\n}"
+						},
+						"url": {
+							"raw": "{{user_service_url}}/users/{{user_id}}",
+							"host": ["{{user_service_url}}"],
+							"path": ["users", "{{user_id}}"]
+						},
+						"description": "Update existing user"
+					}
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{user_service_url}}/users/{{user_id}}",
+							"host": ["{{user_service_url}}"],
+							"path": ["users", "{{user_id}}"]
+						},
+						"description": "Delete user by ID"
+					}
+				}
+			],
+			"description": "User management endpoints"
+		},
+		{
+			"name": "Chef Service",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{chef_service_url}}/actuator/health",
+							"host": ["{{chef_service_url}}"],
+							"path": ["actuator", "health"]
+						},
+						"description": "Check Chef service health"
+					}
+				},
+				{
+					"name": "Get All Chefs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{chef_service_url}}/chefs",
+							"host": ["{{chef_service_url}}"],
+							"path": ["chefs"]
+						},
+						"description": "Retrieve all chefs"
+					}
+				},
+				{
+					"name": "Get Chef by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{chef_service_url}}/chefs/{{chef_id}}",
+							"host": ["{{chef_service_url}}"],
+							"path": ["chefs", "{{chef_id}}"]
+						},
+						"description": "Get specific chef by ID"
+					}
+				},
+				{
+					"name": "Create Chef",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Chef Marco\",\n  \"cuisine\": \"Italian\",\n  \"experience\": \"10 years\",\n  \"rating\": 4.8,\n  \"address\": \"123 Chef St, Culinary City\",\n  \"phone\": \"+1234567890\"\n}"
+						},
+						"url": {
+							"raw": "{{chef_service_url}}/chefs",
+							"host": ["{{chef_service_url}}"],
+							"path": ["chefs"]
+						},
+						"description": "Create a new chef profile"
+					}
+				},
+				{
+					"name": "Update Chef",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"{{chef_id}}\",\n  \"name\": \"Chef Marco Updated\",\n  \"cuisine\": \"Italian & Mediterranean\",\n  \"experience\": \"12 years\",\n  \"rating\": 4.9,\n  \"address\": \"456 Updated Chef St, Culinary City\",\n  \"phone\": \"+1234567890\"\n}"
+						},
+						"url": {
+							"raw": "{{chef_service_url}}/chefs/{{chef_id}}",
+							"host": ["{{chef_service_url}}"],
+							"path": ["chefs", "{{chef_id}}"]
+						},
+						"description": "Update existing chef profile"
+					}
+				},
+				{
+					"name": "Delete Chef",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{chef_service_url}}/chefs/{{chef_id}}",
+							"host": ["{{chef_service_url}}"],
+							"path": ["chefs", "{{chef_id}}"]
+						},
+						"description": "Delete chef by ID"
+					}
+				},
+				{
+					"name": "Search Chefs by Cuisine",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{chef_service_url}}/chefs/search?cuisine={{cuisine_type}}",
+							"host": ["{{chef_service_url}}"],
+							"path": ["chefs", "search"],
+							"query": [
+								{
+									"key": "cuisine",
+									"value": "{{cuisine_type}}"
+								}
+							]
+						},
+						"description": "Search chefs by cuisine type"
+					}
+				}
+			],
+			"description": "Chef management endpoints"
+		},
+		{
+			"name": "Food Catalogue Service",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{foodcatalogue_service_url}}/actuator/health",
+							"host": ["{{foodcatalogue_service_url}}"],
+							"path": ["actuator", "health"]
+						},
+						"description": "Check Food Catalogue service health"
+					}
+				},
+				{
+					"name": "Get All Food Items",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{foodcatalogue_service_url}}/foodcatalogue",
+							"host": ["{{foodcatalogue_service_url}}"],
+							"path": ["foodcatalogue"]
+						},
+						"description": "Retrieve all food items"
+					}
+				},
+				{
+					"name": "Get Food Items by Chef ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{foodcatalogue_service_url}}/foodcatalogue/chef/{{chef_id}}",
+							"host": ["{{foodcatalogue_service_url}}"],
+							"path": ["foodcatalogue", "chef", "{{chef_id}}"]
+						},
+						"description": "Get food items by specific chef"
+					}
+				},
+				{
+					"name": "Get Food Item by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{foodcatalogue_service_url}}/foodcatalogue/{{food_id}}",
+							"host": ["{{foodcatalogue_service_url}}"],
+							"path": ["foodcatalogue", "{{food_id}}"]
+						},
+						"description": "Get specific food item by ID"
+					}
+				},
+				{
+					"name": "Create Food Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Margherita Pizza\",\n  \"description\": \"Classic Italian pizza with tomatoes, mozzarella, and basil\",\n  \"price\": 18.99,\n  \"category\": \"Pizza\",\n  \"cuisine\": \"Italian\",\n  \"chefId\": \"{{chef_id}}\",\n  \"ingredients\": [\"Tomato Sauce\", \"Mozzarella\", \"Basil\", \"Olive Oil\"],\n  \"isVegetarian\": true,\n  \"isAvailable\": true\n}"
+						},
+						"url": {
+							"raw": "{{foodcatalogue_service_url}}/foodcatalogue",
+							"host": ["{{foodcatalogue_service_url}}"],
+							"path": ["foodcatalogue"]
+						},
+						"description": "Create a new food item"
+					}
+				},
+				{
+					"name": "Update Food Item",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"{{food_id}}\",\n  \"name\": \"Margherita Pizza Deluxe\",\n  \"description\": \"Premium Italian pizza with tomatoes, buffalo mozzarella, and fresh basil\",\n  \"price\": 22.99,\n  \"category\": \"Pizza\",\n  \"cuisine\": \"Italian\",\n  \"chefId\": \"{{chef_id}}\",\n  \"ingredients\": [\"Tomato Sauce\", \"Buffalo Mozzarella\", \"Fresh Basil\", \"Extra Virgin Olive Oil\"],\n  \"isVegetarian\": true,\n  \"isAvailable\": true\n}"
+						},
+						"url": {
+							"raw": "{{foodcatalogue_service_url}}/foodcatalogue/{{food_id}}",
+							"host": ["{{foodcatalogue_service_url}}"],
+							"path": ["foodcatalogue", "{{food_id}}"]
+						},
+						"description": "Update existing food item"
+					}
+				},
+				{
+					"name": "Delete Food Item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{foodcatalogue_service_url}}/foodcatalogue/{{food_id}}",
+							"host": ["{{foodcatalogue_service_url}}"],
+							"path": ["foodcatalogue", "{{food_id}}"]
+						},
+						"description": "Delete food item by ID"
+					}
+				},
+				{
+					"name": "Search Food by Category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{foodcatalogue_service_url}}/foodcatalogue/search?category={{food_category}}",
+							"host": ["{{foodcatalogue_service_url}}"],
+							"path": ["foodcatalogue", "search"],
+							"query": [
+								{
+									"key": "category",
+									"value": "{{food_category}}"
+								}
+							]
+						},
+						"description": "Search food items by category"
+					}
+				},
+				{
+					"name": "Get Vegetarian Food Items",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{foodcatalogue_service_url}}/foodcatalogue/vegetarian",
+							"host": ["{{foodcatalogue_service_url}}"],
+							"path": ["foodcatalogue", "vegetarian"]
+						},
+						"description": "Get all vegetarian food items"
+					}
+				}
+			],
+			"description": "Food catalogue management endpoints"
+		},
+		{
+			"name": "Order Service",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{order_service_url}}/actuator/health",
+							"host": ["{{order_service_url}}"],
+							"path": ["actuator", "health"]
+						},
+						"description": "Check Order service health"
+					}
+				},
+				{
+					"name": "Get All Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{order_service_url}}/orders",
+							"host": ["{{order_service_url}}"],
+							"path": ["orders"]
+						},
+						"description": "Retrieve all orders"
+					}
+				},
+				{
+					"name": "Get Order by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{order_service_url}}/orders/{{order_id}}",
+							"host": ["{{order_service_url}}"],
+							"path": ["orders", "{{order_id}}"]
+						},
+						"description": "Get specific order by ID"
+					}
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": \"{{user_id}}\",\n  \"chefId\": \"{{chef_id}}\",\n  \"foodItems\": [\n    {\n      \"foodId\": \"{{food_id}}\",\n      \"quantity\": 2,\n      \"price\": 18.99\n    }\n  ],\n  \"totalAmount\": 37.98,\n  \"deliveryAddress\": \"123 Main St, City, State\",\n  \"specialInstructions\": \"Please ring the doorbell\"\n}"
+						},
+						"url": {
+							"raw": "{{order_service_url}}/orders",
+							"host": ["{{order_service_url}}"],
+							"path": ["orders"]
+						},
+						"description": "Create a new order"
+					}
+				},
+				{
+					"name": "Update Order Status",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"{{order_status}}\"\n}"
+						},
+						"url": {
+							"raw": "{{order_service_url}}/orders/{{order_id}}/status",
+							"host": ["{{order_service_url}}"],
+							"path": ["orders", "{{order_id}}", "status"]
+						},
+						"description": "Update order status (PENDING, CONFIRMED, PREPARING, OUT_FOR_DELIVERY, DELIVERED, CANCELLED)"
+					}
+				},
+				{
+					"name": "Get Orders by User ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{order_service_url}}/orders/user/{{user_id}}",
+							"host": ["{{order_service_url}}"],
+							"path": ["orders", "user", "{{user_id}}"]
+						},
+						"description": "Get all orders for a specific user"
+					}
+				},
+				{
+					"name": "Get Orders by Chef ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{order_service_url}}/orders/chef/{{chef_id}}",
+							"host": ["{{order_service_url}}"],
+							"path": ["orders", "chef", "{{chef_id}}"]
+						},
+						"description": "Get all orders for a specific chef"
+					}
+				},
+				{
+					"name": "Cancel Order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{order_service_url}}/orders/{{order_id}}",
+							"host": ["{{order_service_url}}"],
+							"path": ["orders", "{{order_id}}"]
+						},
+						"description": "Cancel/Delete order by ID"
+					}
+				},
+				{
+					"name": "Get Order Summary",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{order_service_url}}/orders/{{order_id}}/summary",
+							"host": ["{{order_service_url}}"],
+							"path": ["orders", "{{order_id}}", "summary"]
+						},
+						"description": "Get detailed order summary with user and chef information"
+					}
+				}
+			],
+			"description": "Order management endpoints"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "eureka_url",
+			"value": "https://eureka-service-oqfd2ssuua-uc.a.run.app",
+			"type": "string",
+			"description": "Eureka Server URL"
+		},
+		{
+			"key": "user_service_url",
+			"value": "https://userinfo-service-oqfd2ssuua-uc.a.run.app",
+			"type": "string",
+			"description": "User Service URL"
+		},
+		{
+			"key": "chef_service_url",
+			"value": "https://cheflisting-service-oqfd2ssuua-uc.a.run.app",
+			"type": "string",
+			"description": "Chef Service URL"
+		},
+		{
+			"key": "foodcatalogue_service_url",
+			"value": "https://foodcatalogue-service-oqfd2ssuua-uc.a.run.app",
+			"type": "string",
+			"description": "Food Catalogue Service URL"
+		},
+		{
+			"key": "order_service_url",
+			"value": "https://order-service-oqfd2ssuua-uc.a.run.app",
+			"type": "string",
+			"description": "Order Service URL"
+		},
+		{
+			"key": "user_id",
+			"value": "64a1f2b4c8d9e7f6a5b4c3d2",
+			"type": "string",
+			"description": "Sample User ID for testing"
+		},
+		{
+			"key": "chef_id",
+			"value": "64a1f2b4c8d9e7f6a5b4c3d3",
+			"type": "string",
+			"description": "Sample Chef ID for testing"
+		},
+		{
+			"key": "food_id",
+			"value": "64a1f2b4c8d9e7f6a5b4c3d4",
+			"type": "string",
+			"description": "Sample Food Item ID for testing"
+		},
+		{
+			"key": "order_id",
+			"value": "64a1f2b4c8d9e7f6a5b4c3d5",
+			"type": "string",
+			"description": "Sample Order ID for testing"
+		},
+		{
+			"key": "cuisine_type",
+			"value": "Italian",
+			"type": "string",
+			"description": "Sample cuisine type for testing"
+		},
+		{
+			"key": "food_category",
+			"value": "Pizza",
+			"type": "string",
+			"description": "Sample food category for testing"
+		},
+		{
+			"key": "order_status",
+			"value": "CONFIRMED",
+			"type": "string",
+			"description": "Sample order status for testing (PENDING, CONFIRMED, PREPARING, OUT_FOR_DELIVERY, DELIVERED, CANCELLED)"
+		}
+	]
+}

@@ -15,4 +15,13 @@ public class FoodCataloguePage {
     private List<FoodItem> foodItemsList;
     private Chef chef;
 
+    // Manual setters to fix Lombok compilation issue
+    public void setFoodItemsList(List<FoodItem> foodItemsList) {
+        this.foodItemsList = foodItemsList;
+    }
+
+    public void setChef(Chef chef) {
+        this.chef = chef;
+    }
+
 }

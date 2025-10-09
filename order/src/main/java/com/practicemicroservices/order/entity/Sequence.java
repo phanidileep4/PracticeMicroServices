@@ -14,4 +14,9 @@ public class Sequence {
     @Id
     private String id;
     private int sequence;
+
+    // Manual getter to fix Lombok compilation issue
+    public int getSequence() {
+        return sequence;
+    }
 }

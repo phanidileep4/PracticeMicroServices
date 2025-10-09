@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  eureka-server:
+    build: ../eureka
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - microservices-network
+
+  user-service:
+    build: ../userinfo
+    ports:
+      - "9098:9098"
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka/
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - microservices-network
+
+  chef-service:
+    build: ../chefListing
+    ports:
+      - "9091:9091"
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka/
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - microservices-network
+
+  foodcatalogue-service:
+    build: ../foodcatalogue
+    ports:
+      - "9095:9095"
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka/
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - microservices-network
+
+  order-service:
+    build: ../order
+    ports:
+      - "9097:9097"
+    depends_on:
+      - eureka-server
+      - user-service
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-server:8761/eureka/
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge

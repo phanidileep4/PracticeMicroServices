@@ -1,0 +1,549 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+		"name": "HomeFoodEats Production APIs - Cloud Deployment",
+		"description": "Complete API collection for HomeFoodEats microservices deployed on Google Cloud Run\n\nServices:\n- Eureka Server: Service Discovery\n- User Service: User management\n- Chef Service: Chef listing management\n- Food Catalogue Service: Food items management\n- Order Service: Order processing\n\nAll endpoints are pointing to production URLs on Google Cloud Run.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "🔍 Eureka Server",
+			"item": [
+				{
+					"name": "Get All Registered Services",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eureka-service-oqfd2ssuua-uc.a.run.app/eureka/apps",
+							"protocol": "https",
+							"host": [
+								"eureka-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"eureka",
+								"apps"
+							]
+						},
+						"description": "Get all services registered with Eureka server"
+					}
+				},
+				{
+					"name": "Eureka Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eureka-service-oqfd2ssuua-uc.a.run.app/",
+							"protocol": "https",
+							"host": [
+								"eureka-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Access Eureka Dashboard UI"
+					}
+				},
+				{
+					"name": "Eureka Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eureka-service-oqfd2ssuua-uc.a.run.app/actuator/health",
+							"protocol": "https",
+							"host": [
+								"eureka-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"actuator",
+								"health"
+							]
+						},
+						"description": "Check Eureka server health status"
+					}
+				}
+			],
+			"description": "Eureka Server endpoints for service discovery"
+		},
+		{
+			"name": "👤 User Service",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://userinfo-service-oqfd2ssuua-uc.a.run.app/user/fetchAllUsers",
+							"protocol": "https",
+							"host": [
+								"userinfo-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"user",
+								"fetchAllUsers"
+							]
+						},
+						"description": "Fetch all users from the system"
+					}
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://userinfo-service-oqfd2ssuua-uc.a.run.app/user/fetchUserById/USER001",
+							"protocol": "https",
+							"host": [
+								"userinfo-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"user",
+								"fetchUserById",
+								"USER001"
+							]
+						},
+						"description": "Fetch a specific user by ID"
+					}
+				},
+				{
+					"name": "Add New User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userName\": \"John Doe\",\n    \"userEmail\": \"john.doe@example.com\",\n    \"userAddress\": \"123 Main Street\",\n    \"userCity\": \"New York\"\n}"
+						},
+						"url": {
+							"raw": "https://userinfo-service-oqfd2ssuua-uc.a.run.app/user/addUser",
+							"protocol": "https",
+							"host": [
+								"userinfo-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"user",
+								"addUser"
+							]
+						},
+						"description": "Add a new user to the system"
+					}
+				},
+				{
+					"name": "User Service Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://userinfo-service-oqfd2ssuua-uc.a.run.app/actuator/health",
+							"protocol": "https",
+							"host": [
+								"userinfo-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"actuator",
+								"health"
+							]
+						},
+						"description": "Check User service health status"
+					}
+				}
+			],
+			"description": "User Service endpoints for user management"
+		},
+		{
+			"name": "👨‍🍳 Chef Service",
+			"item": [
+				{
+					"name": "Get All Chefs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cheflisting-service-oqfd2ssuua-uc.a.run.app/chef/fetchAllChefs",
+							"protocol": "https",
+							"host": [
+								"cheflisting-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"chef",
+								"fetchAllChefs"
+							]
+						},
+						"description": "Fetch all chefs from the system"
+					}
+				},
+				{
+					"name": "Get Chef by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cheflisting-service-oqfd2ssuua-uc.a.run.app/chef/fetchChefById/CHEF001",
+							"protocol": "https",
+							"host": [
+								"cheflisting-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"chef",
+								"fetchChefById",
+								"CHEF001"
+							]
+						},
+						"description": "Fetch a specific chef by ID"
+					}
+				},
+				{
+					"name": "Add New Chef",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Gordon Ramsay\",\n    \"address\": \"456 Culinary Avenue\",\n    \"city\": \"London\",\n    \"chefDescription\": \"World-renowned chef specializing in fine dining and modern cuisine\"\n}"
+						},
+						"url": {
+							"raw": "https://cheflisting-service-oqfd2ssuua-uc.a.run.app/chef/addChef",
+							"protocol": "https",
+							"host": [
+								"cheflisting-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"chef",
+								"addChef"
+							]
+						},
+						"description": "Add a new chef to the system"
+					}
+				},
+				{
+					"name": "Chef Service Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cheflisting-service-oqfd2ssuua-uc.a.run.app/actuator/health",
+							"protocol": "https",
+							"host": [
+								"cheflisting-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"actuator",
+								"health"
+							]
+						},
+						"description": "Check Chef service health status"
+					}
+				}
+			],
+			"description": "Chef Service endpoints for chef management"
+		},
+		{
+			"name": "🍽️ Food Catalogue Service",
+			"item": [
+				{
+					"name": "Get All Food Items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://foodcatalogue-service-oqfd2ssuua-uc.a.run.app/foodCatalogue/fetchAllFoodItems",
+							"protocol": "https",
+							"host": [
+								"foodcatalogue-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"foodCatalogue",
+								"fetchAllFoodItems"
+							]
+						},
+						"description": "Fetch all food items from the catalogue"
+					}
+				},
+				{
+					"name": "Get Food Items by Chef ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://foodcatalogue-service-oqfd2ssuua-uc.a.run.app/foodCatalogue/fetchFoodCataloguePageByChefId/CHEF001",
+							"protocol": "https",
+							"host": [
+								"foodcatalogue-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"foodCatalogue",
+								"fetchFoodCataloguePageByChefId",
+								"CHEF001"
+							]
+						},
+						"description": "Fetch food catalogue page for a specific chef"
+					}
+				},
+				{
+					"name": "Add New Food Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"itemName\": \"Butter Chicken\",\n    \"itemDescription\": \"Creamy tomato-based curry with tender chicken pieces\",\n    \"itemPrice\": 18.99,\n    \"chefId\": \"CHEF001\",\n    \"category\": \"Indian\"\n}"
+						},
+						"url": {
+							"raw": "https://foodcatalogue-service-oqfd2ssuua-uc.a.run.app/foodCatalogue/addFoodItem",
+							"protocol": "https",
+							"host": [
+								"foodcatalogue-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"foodCatalogue",
+								"addFoodItem"
+							]
+						},
+						"description": "Add a new food item to the catalogue"
+					}
+				},
+				{
+					"name": "Food Catalogue Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://foodcatalogue-service-oqfd2ssuua-uc.a.run.app/actuator/health",
+							"protocol": "https",
+							"host": [
+								"foodcatalogue-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"actuator",
+								"health"
+							]
+						},
+						"description": "Check Food Catalogue service health status"
+					}
+				}
+			],
+			"description": "Food Catalogue Service endpoints for food item management"
+		},
+		{
+			"name": "📋 Order Service",
+			"item": [
+				{
+					"name": "Create New Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"USER001\",\n    \"chefDTO\": {\n        \"id\": \"CHEF001\",\n        \"name\": \"Gordon Ramsay\",\n        \"address\": \"456 Culinary Avenue\",\n        \"city\": \"London\",\n        \"chefDescription\": \"World-renowned chef\"\n    },\n    \"foodItemsDTOList\": [\n        {\n            \"id\": \"FOOD001\",\n            \"itemName\": \"Butter Chicken\",\n            \"itemDescription\": \"Creamy tomato-based curry\",\n            \"itemPrice\": 18.99,\n            \"chefId\": \"CHEF001\",\n            \"category\": \"Indian\",\n            \"quantity\": 2\n        },\n        {\n            \"id\": \"FOOD002\",\n            \"itemName\": \"Naan Bread\",\n            \"itemDescription\": \"Traditional Indian bread\",\n            \"itemPrice\": 4.99,\n            \"chefId\": \"CHEF001\",\n            \"category\": \"Indian\",\n            \"quantity\": 3\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://order-service-oqfd2ssuua-uc.a.run.app/order/processOrder",
+							"protocol": "https",
+							"host": [
+								"order-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"order",
+								"processOrder"
+							]
+						},
+						"description": "Create and process a new order"
+					}
+				},
+				{
+					"name": "Order Service Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://order-service-oqfd2ssuua-uc.a.run.app/actuator/health",
+							"protocol": "https",
+							"host": [
+								"order-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"actuator",
+								"health"
+							]
+						},
+						"description": "Check Order service health status"
+					}
+				}
+			],
+			"description": "Order Service endpoints for order processing"
+		},
+		{
+			"name": "🩺 Health Checks & Monitoring",
+			"item": [
+				{
+					"name": "All Services Health Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eureka-service-oqfd2ssuua-uc.a.run.app/actuator/health",
+							"protocol": "https",
+							"host": [
+								"eureka-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"actuator",
+								"health"
+							]
+						},
+						"description": "Check all services health via Eureka"
+					}
+				},
+				{
+					"name": "Service Discovery Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://eureka-service-oqfd2ssuua-uc.a.run.app/eureka/apps",
+							"protocol": "https",
+							"host": [
+								"eureka-service-oqfd2ssuua-uc",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"eureka",
+								"apps"
+							]
+						},
+						"description": "Check which services are registered with Eureka"
+					}
+				}
+			],
+			"description": "Health monitoring and service discovery endpoints"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "eureka_url",
+			"value": "https://eureka-service-692654636538.us-central1.run.app",
+			"type": "string"
+		},
+		{
+			"key": "user_service_url",
+			"value": "https://userinfo-service-692654636538.us-central1.run.app",
+			"type": "string"
+		},
+		{
+			"key": "chef_service_url",
+			"value": "https://cheflisting-service-692654636538.us-central1.run.app",
+			"type": "string"
+		},
+		{
+			"key": "food_catalogue_url",
+			"value": "https://foodcatalogue-service-692654636538.us-central1.run.app",
+			"type": "string"
+		},
+		{
+			"key": "order_service_url",
+			"value": "https://order-service-692654636538.us-central1.run.app",
+			"type": "string"
+		}
+	]
+}

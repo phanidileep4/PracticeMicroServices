@@ -12,6 +12,19 @@ import java.util.List;
 public class OrderDTOFromUI {
 
     private List<FoodItemsDTO> foodItemsDTOList;
-    private Integer userId;
+    private String userId;
     private ChefDTO chefDTO;
+    
+    // Explicit getter methods to ensure compilation works
+    public List<FoodItemsDTO> getFoodItemsDTOList() {
+        return foodItemsDTOList;
+    }
+    
+    public String getUserId() {
+        return userId;
+    }
+    
+    public ChefDTO getChefDTO() {
+        return chefDTO;
+    }
 }

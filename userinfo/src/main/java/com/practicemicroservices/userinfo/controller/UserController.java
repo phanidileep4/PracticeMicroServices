@@ -22,7 +22,7 @@ public class UserController {
     }
 
     @GetMapping("/fetchUserById/{userId}")
-    public ResponseEntity<UserDTO> getUserById(@PathVariable Integer userId){
+    public ResponseEntity<UserDTO> getUserById(@PathVariable String userId){
         return userService.getUserById(userId);
     }
 

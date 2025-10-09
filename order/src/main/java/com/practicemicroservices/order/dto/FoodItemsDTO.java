@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodItemsDTO {
-    private int id;
+    private String id;
     private String itemName;
     private String itemDescription;
     private boolean isVeg;
     private Number price;
-    private Integer chefId;
+    private String chefId;
     private Integer quantity;
 }

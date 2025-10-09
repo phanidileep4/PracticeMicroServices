@@ -1,26 +1,81 @@
 package com.practicemicroservices.foodcatalogue.entity;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Document(collection = "fooditems")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private String id;
     private String itemName;
     private String itemDescription;
     private boolean isVeg;
     private Number price;
-    private Integer chefId;
+    private String chefId;
+    private Integer quantity = 0;
 
-    @Column(nullable = false,columnDefinition = "INT DEFAULT 0")
-    private Integer quantity;
+    // Manual getter methods to fix Lombok compilation issue
+    public String getId() {
+        return id;
+    }
 
+    public String getItemName() {
+        return itemName;
+    }
+
+    public String getItemDescription() {
+        return itemDescription;
+    }
+
+    public boolean isVeg() {
+        return isVeg;
+    }
+
+    public Number getPrice() {
+        return price;
+    }
+
+    public String getChefId() {
+        return chefId;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    // Manual setter methods to fix Lombok compilation issue
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public void setItemDescription(String itemDescription) {
+        this.itemDescription = itemDescription;
+    }
+
+    public void setVeg(boolean veg) {
+        isVeg = veg;
+    }
+
+    public void setPrice(Number price) {
+        this.price = price;
+    }
+
+    public void setChefId(String chefId) {
+        this.chefId = chefId;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 }

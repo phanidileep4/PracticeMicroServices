@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/foodCatalogue")
 public class FoodCatalogueController {
@@ -22,9 +24,15 @@ public class FoodCatalogueController {
     }
 
     @GetMapping("/fetchChefAndFoodItemsById/{chefId}")
-    public ResponseEntity<FoodCataloguePage> fetchChefAndFoodItemById(@PathVariable Integer chefId){
+    public ResponseEntity<FoodCataloguePage> fetchChefAndFoodItemById(@PathVariable String chefId){
         FoodCataloguePage foodCataloguePage=foodCatalogueService.fetchFoodCataloguePageDetails(chefId);
         return new ResponseEntity<>(foodCataloguePage,HttpStatus.OK);
+    }
+
+    @GetMapping("/fetchAllFoodItems")
+    public ResponseEntity<List<FoodItemDTO>> fetchAllFoodItems(){
+        List<FoodItemDTO> allFoodItems = foodCatalogueService.fetchAllFoodItems();
+        return new ResponseEntity<>(allFoodItems, HttpStatus.OK);
     }
 
 }
