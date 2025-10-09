@@ -11,7 +11,7 @@
 - **Scaling up/down instances** - Same service, same URL
 - **Service restarts due to traffic** - Automatic, same URL
 
-### **🔴 URLs WILL Change:**
+### **🔴 URLs WILL Change:** 
 - **New deployments** (`./build-and-deploy.sh`) - New container images
 - **Deleting and recreating services** - Complete new service
 - **Major configuration changes** - May trigger new revisions
