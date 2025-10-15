@@ -18,6 +18,9 @@ public class OpenApiConfig {
                         .title("Order Service API")
                         .version("v1")
                         .description("APIs for Order Service"))
-                .servers(List.of(new Server().url("http://localhost:9097").description("Local server")));
+                .servers(List.of(
+                    new Server().url("https://order-service-oqfd2ssuua-uc.a.run.app").description("Production server (GCP)"),
+                    new Server().url("http://localhost:9097").description("Local development server")
+                ));
     }
 }

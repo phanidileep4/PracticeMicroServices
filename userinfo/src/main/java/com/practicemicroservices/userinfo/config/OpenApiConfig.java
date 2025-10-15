@@ -18,6 +18,9 @@ public class OpenApiConfig {
                         .title("User Service API")
                         .version("v1")
                         .description("APIs for User Service"))
-                .servers(List.of(new Server().url("http://localhost:9098").description("Local server")));
+                .servers(List.of(
+                    new Server().url("https://userinfo-service-oqfd2ssuua-uc.a.run.app").description("Production server (GCP)"),
+                    new Server().url("http://localhost:9098").description("Local development server")
+                ));
     }
 }

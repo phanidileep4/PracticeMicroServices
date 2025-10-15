@@ -18,6 +18,9 @@ public class OpenApiConfig {
                         .title("Chef Listing Service API")
                         .version("v1")
                         .description("APIs for Chef Listing Service"))
-                .servers(List.of(new Server().url("http://localhost:9091").description("Local server")));
+                .servers(List.of(
+                    new Server().url("https://cheflisting-service-oqfd2ssuua-uc.a.run.app").description("Production server (GCP)"),
+                    new Server().url("http://localhost:9091").description("Local development server")
+                ));
     }
 }

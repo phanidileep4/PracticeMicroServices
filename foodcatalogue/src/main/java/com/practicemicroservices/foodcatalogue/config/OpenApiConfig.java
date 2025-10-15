@@ -18,6 +18,9 @@ public class OpenApiConfig {
                         .title("Food Catalogue Service API")
                         .version("v1")
                         .description("APIs for Food Catalogue Service"))
-                .servers(List.of(new Server().url("http://localhost:9095").description("Local server")));
+                .servers(List.of(
+                    new Server().url("https://foodcatalogue-service-oqfd2ssuua-uc.a.run.app").description("Production server (GCP)"),
+                    new Server().url("http://localhost:9095").description("Local development server")
+                ));
     }
 }
