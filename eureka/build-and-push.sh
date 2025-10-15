@@ -40,37 +40,36 @@ echo "Building and pushing microservices to Google Container Registry..."
 
 # Build and push Eureka Server
 echo "Building Eureka Server..."
-cd eureka
 mvn clean package -DskipTests
-docker build -t $REGISTRY/$PROJECT_ID/eureka:latest .
+docker build --platform linux/amd64 -t $REGISTRY/$PROJECT_ID/eureka:latest .
 docker push $REGISTRY/$PROJECT_ID/eureka:latest
 
 # Build and push User Service
 echo "Building User Service..."
 cd ../userinfo
 mvn clean package -DskipTests
-docker build -t $REGISTRY/$PROJECT_ID/userinfo:latest .
+docker build --platform linux/amd64 -t $REGISTRY/$PROJECT_ID/userinfo:latest .
 docker push $REGISTRY/$PROJECT_ID/userinfo:latest
 
 # Build and push Chef Service
 echo "Building Chef Service..."
 cd ../chefListing
 mvn clean package -DskipTests
-docker build -t $REGISTRY/$PROJECT_ID/cheflisting:latest .
+docker build --platform linux/amd64 -t $REGISTRY/$PROJECT_ID/cheflisting:latest .
 docker push $REGISTRY/$PROJECT_ID/cheflisting:latest
 
 # Build and push Food Catalogue Service
 echo "Building Food Catalogue Service..."
 cd ../foodcatalogue
 mvn clean package -DskipTests
-docker build -t $REGISTRY/$PROJECT_ID/foodcatalogue:latest .
+docker build --platform linux/amd64 -t $REGISTRY/$PROJECT_ID/foodcatalogue:latest .
 docker push $REGISTRY/$PROJECT_ID/foodcatalogue:latest
 
 # Build and push Order Service
 echo "Building Order Service..."
 cd ../order
 mvn clean package -DskipTests
-docker build -t $REGISTRY/$PROJECT_ID/order:latest .
+docker build --platform linux/amd64 -t $REGISTRY/$PROJECT_ID/order:latest .
 docker push $REGISTRY/$PROJECT_ID/order:latest
 
 echo "All images successfully pushed to Google Container Registry!"
