@@ -20,6 +20,7 @@ public class FoodItem {
     private Number price;
     private String chefId;
     private Integer quantity = 0;
+    private String cuisine; // new field added
 
     // Manual getter methods to fix Lombok compilation issue
     public String getId() {
@@ -50,6 +51,10 @@ public class FoodItem {
         return quantity;
     }
 
+    public String getCuisine() {
+        return cuisine;
+    }
+
     // Manual setter methods to fix Lombok compilation issue
     public void setId(String id) {
         this.id = id;
@@ -77,5 +82,9 @@ public class FoodItem {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public void setCuisine(String cuisine) {
+        this.cuisine = cuisine;
     }
 }

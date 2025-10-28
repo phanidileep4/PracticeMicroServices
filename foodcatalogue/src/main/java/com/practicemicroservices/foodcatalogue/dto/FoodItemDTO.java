@@ -17,6 +17,7 @@ public class FoodItemDTO {
     private Number price;
     private String chefId;
     private Integer quantity;
+    private String cuisine; // new field
 
     // Manual getter methods to fix Lombok compilation issue
     public String getId() {
@@ -47,6 +48,10 @@ public class FoodItemDTO {
         return quantity;
     }
 
+    public String getCuisine() {
+        return cuisine;
+    }
+
     // Manual setter methods to fix Lombok compilation issue
     public void setId(String id) {
         this.id = id;
@@ -74,5 +79,9 @@ public class FoodItemDTO {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public void setCuisine(String cuisine) {
+        this.cuisine = cuisine;
     }
 }
