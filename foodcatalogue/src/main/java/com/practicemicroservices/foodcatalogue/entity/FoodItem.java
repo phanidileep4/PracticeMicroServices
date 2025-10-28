@@ -19,6 +19,7 @@ public class FoodItem {
     private boolean isVeg;
     private Number price;
     private String chefId;
+    private String chefName; // new field added
     private Integer quantity = 0;
     private String cuisine; // new field added
 
@@ -45,6 +46,10 @@ public class FoodItem {
 
     public String getChefId() {
         return chefId;
+    }
+
+    public String getChefName() {
+        return chefName;
     }
 
     public Integer getQuantity() {
@@ -78,6 +83,10 @@ public class FoodItem {
 
     public void setChefId(String chefId) {
         this.chefId = chefId;
+    }
+
+    public void setChefName(String chefName) {
+        this.chefName = chefName;
     }
 
     public void setQuantity(Integer quantity) {

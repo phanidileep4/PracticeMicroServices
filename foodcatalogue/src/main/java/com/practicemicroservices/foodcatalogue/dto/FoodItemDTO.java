@@ -16,6 +16,7 @@ public class FoodItemDTO {
     private boolean isVeg;
     private Number price;
     private String chefId;
+    private String chefName; // new field
     private Integer quantity;
     private String cuisine; // new field
 
@@ -42,6 +43,10 @@ public class FoodItemDTO {
 
     public String getChefId() {
         return chefId;
+    }
+
+    public String getChefName() {
+        return chefName;
     }
 
     public Integer getQuantity() {
@@ -75,6 +80,10 @@ public class FoodItemDTO {
 
     public void setChefId(String chefId) {
         this.chefId = chefId;
+    }
+
+    public void setChefName(String chefName) {
+        this.chefName = chefName;
     }
 
     public void setQuantity(Integer quantity) {

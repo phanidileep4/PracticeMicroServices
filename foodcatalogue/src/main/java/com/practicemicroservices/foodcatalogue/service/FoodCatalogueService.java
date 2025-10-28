@@ -63,6 +63,7 @@ public class FoodCatalogueService {
         foodItemDTO.setVeg(foodItem.isVeg());
         foodItemDTO.setPrice(foodItem.getPrice());
         foodItemDTO.setChefId(foodItem.getChefId());
+        foodItemDTO.setChefName(foodItem.getChefName()); // map chefName
         foodItemDTO.setQuantity(foodItem.getQuantity());
         foodItemDTO.setCuisine(foodItem.getCuisine()); // map cuisine
         return foodItemDTO;
@@ -76,6 +77,7 @@ public class FoodCatalogueService {
         foodItem.setVeg(foodItemDTO.isVeg());
         foodItem.setPrice(foodItemDTO.getPrice());
         foodItem.setChefId(foodItemDTO.getChefId());
+        foodItem.setChefName(foodItemDTO.getChefName()); // map chefName
         foodItem.setQuantity(foodItemDTO.getQuantity());
         foodItem.setCuisine(foodItemDTO.getCuisine()); // map cuisine
         return foodItem;

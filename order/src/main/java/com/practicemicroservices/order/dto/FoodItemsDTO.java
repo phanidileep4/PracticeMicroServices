@@ -14,6 +14,7 @@ public class FoodItemsDTO {
     private boolean isVeg;
     private Number price;
     private String chefId;
+    private String chefName; // new field
     private Integer quantity;
     private String cuisine; // new field
 
@@ -24,5 +25,14 @@ public class FoodItemsDTO {
 
     public void setCuisine(String cuisine) {
         this.cuisine = cuisine;
+    }
+
+    // Explicit getter and setter for chefName to ensure compatibility
+    public String getChefName() {
+        return chefName;
+    }
+
+    public void setChefName(String chefName) {
+        this.chefName = chefName;
     }
 }
